@@ -11,7 +11,7 @@ export const mockNews: ResponseResolver<MockedRequest, typeof restContext> = (
 ) => {
   const news: News = {
     id: "id",
-    title: "10",
+    title: "best 10",
   };
 
   return res(ctx.json(news));
