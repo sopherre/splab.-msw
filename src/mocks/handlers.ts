@@ -1,14 +1,26 @@
-import { rest } from "msw";
+import { DefaultBodyType, MockedRequest, RestHandler, rest } from "msw";
 
-export const handlers = [
-  // Handles a POST /login request
+export const handlers: RestHandler<MockedRequest<DefaultBodyType>>[] = [
   rest.post("/login", (req, res, ctx) => {
-    // Persist user's authentication in the session
     sessionStorage.setItem("is-authenticated", "true");
 
     return res(
-      // Respond with a 200 status code
-      ctx.status(200)
+      ctx.status(200),
+      ctx.json({
+        ok: true,
+      })
+    );
+  }),
+
+  rest.get("/news", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        news: {
+          id: "id",
+          title: "best 10",
+        },
+      })
     );
   }),
 ];
