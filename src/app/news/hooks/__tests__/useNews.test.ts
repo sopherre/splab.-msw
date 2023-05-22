@@ -27,7 +27,7 @@ describe("useNewsフックのテスト", () => {
     const mockFn = jest.fn();
     server.use(
       rest.post("http://localhost:8080/login", (req, res, ctx) => {
-        mockFn(); // クエリパラメータを引数にモック関数を呼び出す
+        mockFn();
         return res(ctx.status(200));
       })
     );

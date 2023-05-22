@@ -13,7 +13,7 @@ export const useNews = () => {
       const response = await axios.post("/login");
       setIsSuccess(response.data.ok);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   }, []);
 
@@ -23,7 +23,7 @@ export const useNews = () => {
       const data = await res.json();
       setNews(data);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   }, []);
 
